@@ -35,6 +35,7 @@ fn main() {
         "ballet/ed25519/avx512/fd_r43x6_ge.h",
         "ballet/ed25519/avx512/fd_r43x6.h",
         "util/fd_util.h",
+        "util/log/fd_log.h",
     ];
 
     // Base C and Assembly source files to be compiled
