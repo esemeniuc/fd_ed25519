@@ -108,12 +108,15 @@ fn main() {
         .flag("-falign-functions=32")
         .flag("-DFD_HAS_UCONTEXT=1")
         .flag("-DFD_BUILD_INFO=\"build/native/clang/info\"")
+        .flag("-DFD_LOG_NAME_MAX=40UL") // Define missing FD_LOG_NAME_MAX constant
         .flag("-std=c17")
         .flag("-fwrapv");
 
     if is_x86_64 {
         cc_build
             .flag("-Werror") // fails on macos
+            .flag("-Wno-unused-parameter") // suppress unused parameter warnings
+            .flag("-Wno-unused-function") // suppress unused function warnings
             .flag("-DFD_HAS_X86=1")
             .flag("-DFD_IS_X86_64=1")
             .flag("-DFD_HAS_SSE=1")
@@ -181,6 +184,7 @@ fn main() {
         .clang_arg("-DFD_HAS_ATOMIC=1")
         .clang_arg("-DFD_HAS_UCONTEXT=1")
         .clang_arg("-DFD_BUILD_INFO=\"build/native/clang/info\"")
+        .clang_arg("-DFD_LOG_NAME_MAX=40UL") // Define missing FD_LOG_NAME_MAX for bindgen
         .clang_arg("-std=c17");
 
     if is_x86_64 {
