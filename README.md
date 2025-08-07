@@ -32,7 +32,7 @@ https://github.com/firedancer-io/firedancer/tree/v0.703.20300
 
 Directories:
 - `ballet`: Copied `ed25519`, `fiat-crypto`, `hex`, and `sha512` verbatim from FD. Only modified `fd_ballet.h` to remove unnecessary imports
-- `util`: Copied verbatim from FD
+- `util`: Copied verbatim from FD, `fd_log` modified to avoid extra imports
 ```bash
 cp -r ~/dev/firedancer/src/ballet/{ed25519,fiat-crypto,hex,sha512,fd_ballet.h,fd_ballet_base.h} vendor/ballet
 cp -r ~/dev/firedancer/src/util vendor
